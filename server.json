@@ -1,0 +1,29 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.mambabuilt/mcp-funding-press-signal-scanner",
+  "description": "Scan news for funding rounds, exec moves, product launches, and acquisitions at any company.",
+  "version": "1.0.0",
+  "repository": {
+    "url": "https://github.com/mambalabsdev/mcp-funding-press-signal-scanner",
+    "source": "github"
+  },
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@mambalabsdev/mcp-funding-press-signal-scanner",
+      "version": "1.0.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "APIFY_TOKEN",
+          "description": "Apify API token from https://console.apify.com/account/integrations",
+          "isRequired": true,
+          "isSecret": true,
+          "format": "string"
+        }
+      ]
+    }
+  ]
+}

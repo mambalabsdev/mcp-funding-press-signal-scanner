@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "mamba-funding-press-signal-scanner": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@mambalabsdev/mcp-funding-press-signal-scanner"
+      ],
+      "env": {
+        "APIFY_TOKEN": "your-apify-token"
+      }
+    }
+  }
+}
