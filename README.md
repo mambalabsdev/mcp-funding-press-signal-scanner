@@ -4,6 +4,17 @@
 
 Give it a company domain, get back a clean list of that company's recent business events: funding rounds, executive moves, product launches, acquisitions, partnerships, and IPOs. The actor searches public news and press sources, classifies each story into a typed event, deduplicates the same event reported across multiple outlets, and returns one flat row per company. Built for Clay users, RevOps teams, and outbound agencies who want account signals without paying for a Crunchbase seat.
 
+## What's Inside
+
+- [What it does](#what-it-does)
+- [Quick start](#quick-start)
+- [Prerequisites](#prerequisites)
+- [Example prompts](#example-prompts)
+- [Tool and inputs](#tool-and-inputs)
+- [Full actor documentation](#full-actor-documentation)
+- [Mamba Labs GTM Suite](#mamba-labs-gtm-suite)
+- [License](#license)
+
 ## What it does
 
 This server gives an AI client one tool:
