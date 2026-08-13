@@ -1,11 +1,17 @@
 {
   "name": "@mambalabsdev/mcp-funding-press-signal-scanner",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MCP server for the Mamba Labs Funding & Press Signal Scanner actor on Apify. Scan public news and press sources for a company's funding rounds, exec moves, product launches, and acquisitions by domain, returned as flat Clay-ready event JSON.",
   "type": "module",
   "bin": {
     "mcp-funding-press-signal-scanner": "./build/index.js"
   },
+  "files": [
+    "build",
+    "README.md",
+    "LICENSE",
+    "SECURITY.md"
+  ],
   "scripts": {
     "build": "tsc && chmod +x build/index.js",
     "prepublishOnly": "npm run build"
