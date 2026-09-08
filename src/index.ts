@@ -102,7 +102,7 @@ server.registerTool(
   {
     title: "Get Funding and Press Signals",
     description:
-      "Scan Google News and PR wires for funding rounds, executive moves, product launches, and acquisitions at any company domain. Returns deduplicated, dated events in flat Clay-ready JSON. Read-only; requires APIFY_TOKEN; consumes Apify credits.",
+      "Scan Google News and PR wires for funding rounds, executive moves, product launches, and acquisitions at any company domain. Returns deduplicated, dated events in flat Clay-ready JSON. Pass signal_types to report one kind of event and lookback_days to set the window. Read-only; requires APIFY_TOKEN; consumes Apify credits.",
     annotations: {
       title: "Get Funding and Press Signals",
       readOnlyHint: true,
@@ -118,9 +118,18 @@ server.registerTool(
         .string()
         .optional()
         .describe("Optional company name hint, used when the domain does not match the brand name, e.g. Deel for deel.com."),
+      signal_types: z
+        .array(z.enum(["funding_round", "ipo", "acquisition", "exec_move", "product_launch", "partnership"]))
+        .optional()
+        .describe("Report only these event types. Narrowing narrows the search as well as the answer, so a funding only scan issues one news query instead of four. Omit for every type."),
+      lookback_days: z
+        .number()
+        .int()
+        .optional()
+        .describe("How far back to search, in days. Default 365. Shorten it for trigger based outbound, where a raise from eleven months ago is not a trigger."),
     },
   },
-  async ({ domain, company_name }) => {
+  async ({ domain, company_name, signal_types, lookback_days }) => {
     if (domain === undefined || domain.trim() === "") {
       return {
         isError: true,
@@ -130,7 +139,7 @@ server.registerTool(
     return runActor(
       "FS13X6dhQVgX3XOM6",
       "Funding & Press Signal Scanner",
-      compact({ domain, company_name }),
+      compact({ domain, company_name, signal_types, lookback_days }),
     );
   },
 );

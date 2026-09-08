@@ -63,6 +63,8 @@ Get your token at https://console.apify.com/account/integrations, paste it in, a
 
 - `domain` (string, required): company domain to scan, without https or www, e.g. stripe.com.
 - `company_name` (string, optional): company name hint, used when the domain does not match the brand name, e.g. Deel for deel.com.
+- `signal_types` (array, optional): report only these event types: `funding_round`, `ipo`, `acquisition`, `exec_move`, `product_launch`, `partnership`. Narrowing narrows the search as well as the answer. Omit for every type.
+- `lookback_days` (integer, optional): how far back to search, in days. Default 365.
 
 The output is one row per company: `company_domain`, `company_name`, `total_events`, `latest_event_date`, `has_recent_funding`, `funding_total_estimated`, `funding_total_currency`, `most_recent_event_type`, `most_recent_headline`, an `events` array of typed events, a `sources_queried` array, and `run_date`. Each event in the array has `event_type` (funding_round, exec_move, product_launch, acquisition, partnership, ipo), `date`, `headline`, `source_url`, `source_name`, `amount`, `currency`, `funding_stage`, `names`, `description`, and `corroborating_source_count`.
 
