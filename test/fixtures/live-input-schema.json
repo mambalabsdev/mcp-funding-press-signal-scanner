@@ -1,0 +1,81 @@
+{
+  "_provenance": {
+    "actorId": "FS13X6dhQVgX3XOM6",
+    "buildId": "xvHafjIhkQ4YHdt7m",
+    "buildNumber": "0.0.18",
+    "readAt": "2026-10-05T15:41:16.774Z"
+  },
+  "title": "Company Funding News Press Signal Scanner input",
+  "description": "Scan public news and press sources for a company's funding rounds, exec moves, product launches, and acquisitions. Free Apify-plan users get 100 results per calendar month (resets monthly); upgrade for unlimited: https://apify.com/pricing?fpr=mamba",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "domain": {
+      "title": "Company domain",
+      "type": "string",
+      "description": "Company domain to scan, without https or www, e.g. stripe.com. This is the main input for single-company runs and for Clay per-row enrichment.",
+      "editor": "textfield",
+      "prefill": "stripe.com"
+    },
+    "company_name": {
+      "title": "Company name (optional hint)",
+      "type": "string",
+      "description": "Optional search hint. Improves matching when the domain does not match the brand name, e.g. domain deel.com with name Deel. Only applied on single-company runs.",
+      "editor": "textfield"
+    },
+    "domains": {
+      "title": "Company domains (batch)",
+      "type": "array",
+      "description": "Optional list of domains for batch runs. When set and non-empty, this overrides the single domain field. Leave empty for single-company or Clay per-row use.",
+      "editor": "stringList"
+    },
+    "signal_types": {
+      "title": "Signal Types",
+      "type": "array",
+      "description": "Report only these event types. Leave empty for every type, which is what the actor has always done. Narrowing also narrows the search: a funding only run issues one news query instead of four.",
+      "editor": "select",
+      "items": {
+        "type": "string",
+        "enum": [
+          "funding_round",
+          "ipo",
+          "acquisition",
+          "exec_move",
+          "product_launch",
+          "partnership"
+        ],
+        "enumTitles": [
+          "Funding round",
+          "IPO or public listing",
+          "Acquisition or merger",
+          "Executive move",
+          "Product launch",
+          "Partnership"
+        ]
+      },
+      "default": [],
+      "prefill": [
+        "funding_round"
+      ]
+    },
+    "lookback_days": {
+      "title": "Lookback Days",
+      "type": "integer",
+      "description": "How far back to search, in days. Default 365. A shorter window surfaces only fresh news, which is what a trigger based campaign wants.",
+      "editor": "number",
+      "default": 365,
+      "prefill": 90,
+      "minimum": 1,
+      "maximum": 1825
+    },
+    "source_tag": {
+      "title": "Source Tag",
+      "type": "string",
+      "description": "Internal attribution tag set by Mamba Labs on published task examples. Not required, and nothing depends on it. Leave it empty.",
+      "editor": "hidden"
+    }
+  },
+  "required": [
+    "domain"
+  ]
+}
