@@ -56,6 +56,7 @@ Get your token at https://console.apify.com/account/integrations, paste it in, a
 - "Has ramp.com raised any funding in the last year, and how much?"
 - "Scan deel.com (company name Deel) for acquisitions and partnerships."
 - "Show me the most recent press events for notion.so as flat JSON."
+- "Scan stripe.com, ramp.com, and deel.com for funding rounds in the last 90 days."
 
 ## Tool and inputs
 
@@ -65,37 +66,26 @@ Get your token at https://console.apify.com/account/integrations, paste it in, a
 - `company_name` (string, optional): company name hint, used when the domain does not match the brand name, e.g. Deel for deel.com.
 - `signal_types` (array, optional): report only these event types: `funding_round`, `ipo`, `acquisition`, `exec_move`, `product_launch`, `partnership`. Narrowing narrows the search as well as the answer. Omit for every type.
 - `lookback_days` (integer, optional): how far back to search, in days. Default 365.
+- `domains` (array, optional): a list of company domains scanned in one run, one row per company. When set and non-empty it overrides `domain` (still required by the schema, so pass the first domain there too).
 
 The output is one row per company: `company_domain`, `company_name`, `total_events`, `latest_event_date`, `has_recent_funding`, `funding_total_estimated`, `funding_total_currency`, `most_recent_event_type`, `most_recent_headline`, an `events` array of typed events, a `sources_queried` array, and `run_date`. Each event in the array has `event_type` (funding_round, exec_move, product_launch, acquisition, partnership, ipo), `date`, `headline`, `source_url`, `source_name`, `amount`, `currency`, `funding_stage`, `names`, `description`, and `corroborating_source_count`.
 
 ## Full actor documentation
 
-For the complete input and output reference, pricing, and run history, see the Funding & Press Signal Scanner actor on the Apify Store (canonical immutable Actor ID URL):
+For the complete input and output reference, pricing, and run history, see the Funding & Press Signal Scanner actor on the Apify Store:
 
-https://apify.com/mambalabs/FS13X6dhQVgX3XOM6
+https://apify.com/mambalabs/funding-press-signal-scanner
 
 ---
 
 ## Mamba Labs GTM Suite
 
-This server is part of the **Mamba Labs GTM Suite**, a fleet of twelve specialized MCP servers for go-to-market signal intelligence, each backed by a dedicated Apify actor.
+This server is one of 54 Mamba Labs MCP servers, each a thin client for one Mamba Labs actor on Apify. Every actor returns flat, Clay-ready rows that join on the company domain.
 
-| Actor | Immutable Actor ID |
-|---|---|
-| [GTM Hiring Signal Scraper](https://console.apify.com/actors/D7O1SA2EqwHGsGr1P) | `D7O1SA2EqwHGsGr1P` |
-| [GTM Tech Stack Signal Enrichment](https://console.apify.com/actors/qyd7nNyqFPelQViBx) | `qyd7nNyqFPelQViBx` |
-| [GTM Signals Aggregator](https://console.apify.com/actors/xKdRfnfFNkdMpFuNs) | `xKdRfnfFNkdMpFuNs` |
-| [Job Board Keyword Signal Scanner](https://console.apify.com/actors/4DvqpvhMR74NLcDDY) | `4DvqpvhMR74NLcDDY` |
-| [Domain to LinkedIn URL Resolver](https://console.apify.com/actors/3HtnSaqPHOg1Qg5gx) | `3HtnSaqPHOg1Qg5gx` |
-| [ICP Fit Scorer](https://console.apify.com/actors/W161DT8W4kW55dMFh) | `W161DT8W4kW55dMFh` |
-| [Domain Deliverability Checker](https://console.apify.com/actors/0tVgxI7A6o9jMlxmc) | `0tVgxI7A6o9jMlxmc` |
-| [Company Firmographic Enricher](https://console.apify.com/actors/YlUtLWjfPpqykmB8g) | `YlUtLWjfPpqykmB8g` |
-| [Company Social Presence Mapper](https://console.apify.com/actors/4k6CCemkgBDz18m2h) | `4k6CCemkgBDz18m2h` |
-| [Company Identity Resolver](https://console.apify.com/actors/lr8fTRAmZCBZmuwwh) | `lr8fTRAmZCBZmuwwh` |
-| [Company Change-Event Feed](https://console.apify.com/actors/oX44rS0fkEJ3rXLWe) | `oX44rS0fkEJ3rXLWe` |
-| [Funding & Press Signal Scanner](https://console.apify.com/actors/FS13X6dhQVgX3XOM6) | `FS13X6dhQVgX3XOM6` |
+- Browse every server: https://mambabuilt.com/servers
+- Browse every actor on the Apify Store: https://apify.com/mambalabs
 
-> Built by [Mamba Labs](https://github.com/mambalabsdev) | [npm](https://www.npmjs.com/org/mambalabsdev) | [Apify Store](https://apify.com/mambalabs)
+> Built by [Mamba Labs](https://mambabuilt.com) | [npm](https://www.npmjs.com/org/mambalabsdev) | [Apify Store](https://apify.com/mambalabs)
 
 ## License
 
