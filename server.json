@@ -2,7 +2,7 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "com.mambabuilt/mcp-funding-press-signal-scanner",
   "description": "Scan news for funding rounds, exec moves, product launches, and acquisitions at any company.",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "repository": {
     "url": "https://github.com/mambalabsdev/mcp-funding-press-signal-scanner",
     "source": "github"
@@ -11,7 +11,7 @@
     {
       "registryType": "npm",
       "identifier": "@mambalabsdev/mcp-funding-press-signal-scanner",
-      "version": "1.2.0",
+      "version": "1.2.1",
       "transport": {
         "type": "stdio"
       },

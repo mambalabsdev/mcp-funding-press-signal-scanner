@@ -1,7 +1,7 @@
 {
   "manifest_version": "0.3",
   "name": "mcp-funding-press-signal-scanner",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "MCP server that scans public news and press sources for a company's funding rounds, exec moves, product launches, and acquisitions by domain, returning deduplicated, dated events in flat Clay-ready JSON.",
   "author": {
     "name": "Mamba Labs"
