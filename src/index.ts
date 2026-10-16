@@ -205,12 +205,13 @@ server.registerTool(
       "Scan Google News and PR wires for funding rounds, executive moves, product launches, and acquisitions at any company domain. Returns deduplicated, dated events in flat Clay-ready JSON. Use it to find a trigger for outbound (a fresh raise, a new executive) or to qualify an account before a call. Pass signal_types to report one kind of event, lookback_days to set the window, and domains to scan a list in one call. Requires APIFY_TOKEN; consumes Apify credits.",
     annotations: {
       title: "Get Funding and Press Signals",
-      readOnlyHint: true,
+      readOnlyHint: false,
       destructiveHint: false,
       idempotentHint: true,
       openWorldHint: true,
     },
     inputSchema: {
+      max_charge_usd: z.number().min(0).optional().describe("Optional. The run stops before any charge that would take this run's total past this amount in USD, and every row already charged is kept. Leave it empty to rely only on the maximum cost per run set in Apify, which the actor also honors."),
       domain: z
         .string()
         .describe("Company domain to scan, without https or www, e.g. stripe.com."),
@@ -233,7 +234,7 @@ server.registerTool(
         .describe("How far back to search, in days. Default 365. Shorten it for trigger based outbound, where a raise from eleven months ago is not a trigger."),
     },
   },
-  async ({ domain, company_name, domains, signal_types, lookback_days }) => {
+  async ({ domain, company_name, domains, signal_types, lookback_days, max_charge_usd }) => {
     if (domain === undefined || domain.trim() === "") {
       return {
         isError: true,
@@ -243,7 +244,7 @@ server.registerTool(
     return runActor(
       "FS13X6dhQVgX3XOM6",
       "Funding & Press Signal Scanner",
-      compact({ domain, company_name, domains, signal_types, lookback_days }),
+      compact({ max_charge_usd, domain, company_name, domains, signal_types, lookback_days }),
     );
   },
 );

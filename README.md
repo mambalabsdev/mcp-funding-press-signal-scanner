@@ -67,8 +67,18 @@ Get your token at https://console.apify.com/account/integrations, paste it in, a
 - `signal_types` (array, optional): report only these event types: `funding_round`, `ipo`, `acquisition`, `exec_move`, `product_launch`, `partnership`. Narrowing narrows the search as well as the answer. Omit for every type.
 - `lookback_days` (integer, optional): how far back to search, in days. Default 365.
 - `domains` (array, optional): a list of company domains scanned in one run, one row per company. When set and non-empty it overrides `domain` (still required by the schema, so pass the first domain there too).
+- `max_charge_usd` (optional): a cost cap in USD for this run. The actor stops before an item that could take its charges past this amount. Omit it to rely on the maximum cost per run set in Apify.
 
 The output is one row per company: `company_domain`, `company_name`, `total_events`, `latest_event_date`, `has_recent_funding`, `funding_total_estimated`, `funding_total_currency`, `most_recent_event_type`, `most_recent_headline`, an `events` array of typed events, a `sources_queried` array, and `run_date`. Each event in the array has `event_type` (funding_round, exec_move, product_launch, acquisition, partnership, ipo), `date`, `headline`, `source_url`, `source_name`, `amount`, `currency`, `funding_stage`, `names`, `description`, and `corroborating_source_count`.
+
+## Pricing
+
+Price per event on the Apify FREE plan, from the live pricing record; paid Apify plans pay less per event.
+
+| Event | Price (USD) |
+| --- | --- |
+| Actor Start (`apify-actor-start`) | 0.00005 |
+| result (`apify-default-dataset-item`) | 0.03 |
 
 ## Full actor documentation
 
@@ -80,7 +90,7 @@ https://apify.com/mambalabs/funding-press-signal-scanner
 
 ## Mamba Labs GTM Suite
 
-This server is one of 54 Mamba Labs MCP servers, each a thin client for one Mamba Labs actor on Apify. Every actor returns flat, Clay-ready rows that join on the company domain.
+This server is one of 58 Mamba Labs MCP servers, each a thin client for one Mamba Labs actor on Apify. Every actor returns flat, Clay-ready rows that join on the company domain.
 
 - Browse every server: https://mambabuilt.com/servers
 - Browse every actor on the Apify Store: https://apify.com/mambalabs
