@@ -4,7 +4,7 @@
 
 <a href="https://mcprush.com/to/funding-press-signal-scanner-mcp?ref=badge"><img width="380" height="200" src="https://mcprush.com/badge/funding-press-signal-scanner-mcp/card.svg" alt="Funding Press Signal Scanner MCP server" /></a>
 
-Give it a company domain, get back a clean list of that company's recent business events: funding rounds, executive moves, product launches, acquisitions, partnerships, and IPOs. The actor searches public news and press sources, classifies each story into a typed event, deduplicates the same event reported across multiple outlets, and returns one flat row per company. Built for Clay users, RevOps teams, and outbound agencies who want account signals without paying for a Crunchbase seat.
+Give it a company domain, get back a clean list of that company's recent business events: funding rounds, executive moves, product launches, acquisitions, partnerships, and IPOs. The actor searches public news and press sources, classifies each story into a typed event, deduplicates the same event reported across multiple outlets, and returns one flat row per company. Built for Clay users, RevOps teams, and outbound agencies who want account signals without paying for a Crunchbase seat. It wraps the Mamba Labs [Funding and Press Signal Scanner](https://apify.com/mambalabs/funding-press-signal-scanner) actor on Apify.
 
 ## What's Inside
 
@@ -92,7 +92,7 @@ https://apify.com/mambalabs/funding-press-signal-scanner
 
 ## Mamba Labs GTM Suite
 
-This server is one of 58 Mamba Labs MCP servers, each a thin client for one Mamba Labs actor on Apify. Every actor returns flat, Clay-ready rows that join on the company domain.
+This server is one of 103 Mamba Labs MCP servers, each a thin client for one Mamba Labs actor on Apify. Every actor returns flat, Clay-ready rows that join on the company domain.
 
 - Browse every server: https://mambabuilt.com/servers
 - Browse every actor on the Apify Store: https://apify.com/mambalabs
